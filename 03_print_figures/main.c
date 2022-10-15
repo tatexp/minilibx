@@ -80,7 +80,7 @@ int main(int ac, char **av)
 	int		height = 500;
 	int		width = 800;
 	int		color = 0x00FFFFFF; //while color
-(void)av;
+
 	if (ac == 2)
 	{
 		if ((av[1][0] == 'c' || av[1][0] == 't' || av[1][0] == 's') && av[1][1] == '\0')
@@ -95,8 +95,6 @@ int main(int ac, char **av)
 				print_triangle(mlx, mlx_win, width, height, color);
 			else //(av[1][0] == 's')
 				print_square(mlx, mlx_win, width, height, color);
-			
-
 			mlx_loop(mlx);
 		}
 		else
