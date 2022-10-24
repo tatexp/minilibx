@@ -1,7 +1,7 @@
 NAME = transparency
 
 CC = gcc
-FLAGS = -Wall -Werror -Wextra -g
+FLAGS = -Wall -Werror -Wextra
 
 LIBPATH = ../mlx
 SRC = main.c

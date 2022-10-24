@@ -47,7 +47,7 @@ void add_shade(int *color, double distance)
 	*color = *color + ( (int)(distance * 255) << 24);
 }
 
-unsigned int	get_color_from_img(t_data data, int x, int y)
+int	get_color_from_img(t_data data, int x, int y)
 {
 	int offset;
 
@@ -70,9 +70,8 @@ int main(void)
 
 	int 	width = 500;
 	int		height = 500;
-	int		color;
-	int		color_shade;
-	unsigned int ucolor;
+	int 	color;
+	int color_shade;
 	
 	if ((mlx = mlx_init() ) == (void *)0)
 		exit(1);
@@ -84,7 +83,7 @@ int main(void)
 		exit(1); //need to free() mlx, mlx_win
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
-
+	//fill image with pixels
 	while (y < height)
 	{
 		x = 0;
@@ -102,15 +101,8 @@ int main(void)
 		}
 		y++;
 	}
-	x = 0;
-	y = 0;
-	while (x < 100)
-	{
-		ucolor = get_color_from_img(img, x++, 0);
-		printf("%d\n", ucolor);
-	}
-	// mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	// mlx_loop(mlx);
+	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
+	mlx_loop(mlx);
 
 	return (0);
 }
